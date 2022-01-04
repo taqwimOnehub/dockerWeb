@@ -16,6 +16,7 @@ services:
       - POSTGRESQL_DATABASE=my_database
   postgresql-slave:
     image: 'bitnami/postgresql:latest'
+    restart: "always"
     ports:
       - '4001:5432'
     depends_on:
