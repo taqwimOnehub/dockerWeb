@@ -1,0 +1,19 @@
+version: '3.2'
+services:
+  postgresql-master:
+    image: 'postgres:latest'
+    restart: always
+    container_name: SlaveDB_postgres
+    ports:
+      - "5433:5432"
+    expose:
+      - 5433
+    environment:
+      - POSTGRES_USER=taqwim
+      - POSTGRES_PASSWORD=taqwim
+      - POSTGRES_DATABASE=my_database
+    volumes:
+      - c:\Users\taqwi\DockerTesting\slave_pg\my-postgres.conf:/etc/postgresql/postgresql.conf
+      - c:\Users\taqwi\DockerTesting\autossh_pg\etc\autossh\id_rsa:/id_rsa
+  
+
