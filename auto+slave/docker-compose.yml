@@ -1,0 +1,43 @@
+version: '3.2'
+services:
+  postgresql-master:
+    image: 'postgres:latest'
+    restart: always
+    container_name: SlaveDB_postgres2
+    environment:
+      - POSTGRES_USER=taqwim
+      - POSTGRES_PASSWORD=taqwim
+      - POSTGRES_DATABASE=my_database
+    volumes:
+      - c:\Users\taqwi\DockerTesting\auto+slave\data:/var/lib/postgresql/data
+      - c:\Users\taqwi\.ssh\id_rsa:/id_rsa
+      - C:\Users\taqwi\.ssh\known_hosts:/known_host
+    networks:
+      - test_network2
+
+  ssh-local-forward-on-5430:
+    image: jnovack/autossh
+    container_name: autossh-ssh-local-forward2
+    environment:
+      - SSH_REMOTE_USER=taqwi
+      - SSH_REMOTE_HOST=192.168.0.6
+      - SSH_REMOTE_PORT=9999
+      - SSH_BIND_IP=0.0.0.0
+      - SSH_TUNNEL_PORT=5430
+      - SSH_TARGET_HOST=localhost
+      - SSH_TARGET_PORT=6000
+      - SSH_MODE=-L
+    volumes:
+      - c:\Users\taqwi\.ssh\id_rsa:/id_rsa
+      - C:\Users\taqwi\.ssh\known_hosts:/known_host
+    expose:
+      - 5430
+    dns:
+      - 8.8.8.8
+      - 4.2.2.4
+    networks:
+      - test_network2
+
+networks:
+  test_network2: 
+    name: 'test network2'  

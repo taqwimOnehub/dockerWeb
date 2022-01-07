@@ -13,7 +13,8 @@ services:
       - POSTGRES_PASSWORD=taqwim1
       - POSTGRES_DATABASE=my_database
     volumes:
-      - c:\Users\taqwi\DockerTesting\master_pg\my-postgres.conf:/etc/postgresql/postgresql.conf
-      - c:\Users\taqwi\DockerTesting\autossh_pg\etc\autossh\id_rsa:/id_rsa
+      - c:\Users\taqwi\DockerTesting\master_pg\data:/var/lib/postgresql/data
+      - c:\Users\taqwi\.ssh\id_rsa:/id_rsa
+      - C:\Users\taqwi\.ssh\known_hosts:/known_host
   
 
