@@ -1,3 +1,3 @@
-etc/autossh/id_rsa/autossh_id_rsa
-etc/autossh/id_rsa/autossh_id_rsa.pub
-etc/autossh/known_host/known_hosts
+autossh_pg/etc/autossh/id_rsa/autossh_id_rsa
+autossh_pg/etc/autossh/id_rsa/autossh_id_rsa.pub
+autossh_pg/etc/autossh/known_host/known_hosts
